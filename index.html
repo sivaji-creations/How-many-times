@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Many Times? – Class 2 Maths Magic, Unit 5</title>
+<style>
+:root{--ink:#26324a;--sky:#e8f4ff;--sun:#ffc94a;--coral:#ff6b57;--teal:#14a38b;--plum:#7a4cc2;--leaf:#6cbf3f;--paper:#fffdf7;--line:#d9e3f0}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif;color:var(--ink);background:var(--sky);font-size:18px;line-height:1.5}
+h1,h2,h3{font-family:"Arial Rounded MT Bold","Trebuchet MS",sans-serif;margin:.2em 0}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:.5em 1em;background:var(--plum);color:#fff;font-weight:700;box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .08s}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:4px solid var(--sun);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:var(--ink);padding:8px 10px;color:#fff;font-size:15px}
+.bar select{font:inherit;border-radius:10px;padding:.3em}
+.bar .on{background:var(--teal)}.bar .off{background:#6b7590}
+.stop{background:var(--coral)}
+.hero{background:linear-gradient(135deg,#ff8fb1,#ffc94a 55%,#8fd6ff);padding:28px 16px 34px;text-align:center}
+.hero h1{font-size:clamp(34px,7vw,60px);margin:0;letter-spacing:.5px;color:#3b1f6b}
+.hero .x{display:inline-block;background:#fff;border-radius:50%;width:1.3em;height:1.3em;line-height:1.3em;margin:0 .1em;color:var(--coral);transform:rotate(-8deg)}
+.hero p{max-width:640px;margin:8px auto 14px;font-size:20px}
+.big{background:var(--coral);font-size:22px;padding:.6em 1.4em}
+main{max-width:980px;margin:auto;padding:14px}
+section{background:var(--paper);border-radius:24px;padding:20px;margin:18px 0;border:3px solid var(--line);position:relative}
+section.speaking,.speaking{box-shadow:0 0 0 5px var(--sun)}
+.tag{display:inline-block;background:var(--sun);border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700;margin-bottom:6px}
+.rd{float:right;background:var(--teal);font-size:16px}
+.how{background:#fff6d8;border-left:8px solid var(--sun);border-radius:10px;padding:8px 12px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.dom{border-radius:20px;padding:14px;cursor:pointer;border:3px solid transparent;text-align:left}
+.dom:hover{border-color:var(--ink)}
+.dom .ic{font-size:42px}
+.dom b{display:block;font-size:20px}
+.dom small{display:block;margin-top:6px;font-size:15px}
+.d1{background:#ffe3d6}.d2{background:#e1ddff}.d3{background:#d9f5e4}.d4{background:#d8efff}.d5{background:#ffe0f1}
+.goal{display:flex;gap:10px;align-items:center;padding:6px 0}
+.goal input{width:26px;height:26px;accent-color:var(--teal)}
+.stars{font-size:28px;letter-spacing:4px}
+.coco{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0;min-height:70px}
+.bowl{background:#f3d1e6;border:3px solid #b4568f;border-radius:0 0 40px 40px;padding:4px 10px;font-size:26px;animation:pop .3s}
+@keyframes pop{from{transform:scale(.3)}to{transform:scale(1)}}
+.sum{font-size:24px;font-weight:700;color:var(--plum);min-height:36px}
+.ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.chip{background:#fff;color:var(--ink);border:3px solid var(--line);box-shadow:none;padding:.3em .8em}
+.chip.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+input[type=range]{width:200px;accent-color:var(--coral)}
+.arr{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.grp{border:3px dashed var(--teal);border-radius:16px;padding:4px 8px;background:#effcf8;font-size:24px;max-width:100%;word-break:break-all}
+.eq{font-size:26px;font-weight:700}
+table{border-collapse:collapse;width:100%;max-width:560px}
+td{padding:6px 10px;border-bottom:2px solid var(--line);font-size:20px}
+tr{cursor:pointer}tr:hover td,tr.speaking td{background:#fff0b8}
+.skip{background:#e7f8ef;border-radius:12px;padding:8px 12px;font-size:22px;font-weight:700;margin:8px 0}
+.fact{background:#fff;border:3px solid var(--line);border-radius:16px;padding:10px 14px;cursor:pointer}
+.q{font-size:21px;font-weight:700}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.opts button{background:#fff;color:var(--ink);border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-size:22px}
+.opts .ok{background:var(--leaf);color:#fff;border-color:var(--leaf)}
+.opts .no{background:#ffd0ca;animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.pic{font-size:30px;line-height:1.3}
+.msg{min-height:32px;font-weight:700;color:var(--teal)}
+footer{text-align:center;padding:20px;font-size:14px}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:14px;display:none;z-index:30}
+@media(max-width:600px){body{font-size:17px}.rd{float:none;display:block;margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+#fb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:40;pointer-events:none;background:rgba(255,255,255,.6)}
+#fb.show{display:flex}
+#fb .sym{font-size:130px;line-height:1}
+#fb .txt{font-size:40px;font-weight:900;padding:6px 26px;border-radius:22px;color:#fff;box-shadow:0 6px 0 rgba(0,0,0,.2)}
+#fb.good .sym{animation:spinpop .9s ease both,bob .5s .9s ease-in-out infinite alternate}
+#fb.good .txt{background:var(--leaf);animation:pop .4s .3s both}
+#fb.bad .sym{animation:shk .6s ease both}
+#fb.bad .txt{background:#f08a24}
+@keyframes spinpop{0%{transform:scale(.1) rotate(-240deg);opacity:0}55%{transform:scale(1.35) rotate(18deg);opacity:1}75%{transform:scale(.95) rotate(-8deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes bob{to{transform:translateY(-20px) scale(1.06)}}
+@keyframes shk{0%,100%{transform:translateX(0) rotate(0)}15%{transform:translateX(-24px) rotate(-12deg)}40%{transform:translateX(24px) rotate(12deg)}65%{transform:translateX(-16px) rotate(-8deg)}85%{transform:translateX(10px)}}
+.conf{position:fixed;bottom:-40px;font-size:34px;z-index:41;pointer-events:none;animation:rise 1.8s ease-out forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(420deg);opacity:.3}}
+.prog{height:12px;background:var(--line);border-radius:8px;overflow:hidden;margin-bottom:8px}.prog i{display:block;height:100%;background:var(--teal);transition:width .4s}
+.score{font-size:30px;font-weight:900}.score b{color:var(--coral)}
+.lv{font-size:24px;font-weight:700;margin:4px 0 10px;color:var(--plum)}
+.dr{display:flex;justify-content:space-between;gap:10px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 12px;margin:4px 0;font-size:17px}
+#cert{border:10px double #c9972b;background:linear-gradient(#fffdf2,#fff1bd);border-radius:18px;padding:22px 16px;text-align:center;margin:16px 0}
+#cert h2{font-size:clamp(24px,5vw,36px);color:#8a5a00;margin:4px 0}
+#cert .nm{font-size:clamp(28px,6vw,44px);font-weight:900;color:var(--plum);border-bottom:3px dotted #c9972b;display:inline-block;min-width:55%;padding:0 14px;font-family:Georgia,serif;font-style:italic;margin:8px 0}
+#cert .cl{font-size:26px;font-weight:800;margin:10px 0}
+#cert .bd{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px;text-align:left;margin:10px auto;max-width:640px;font-size:15px}
+#cert .bd div{background:#fff;border-radius:10px;padding:4px 10px}
+@media print{body *{visibility:hidden}body:not([data-pr]) #cert,body:not([data-pr]) #cert *{visibility:visible}body:not([data-pr]) #cert{position:absolute;left:0;top:0;width:100%;margin:0}body[data-pr=rep] #rep,body[data-pr=rep] #rep *{visibility:visible}body[data-pr=rep] #rep{position:absolute;left:0;top:0;width:100%}}
+
+.bx{background:#fff;color:var(--ink);border:3px solid #2f5fb3;border-radius:14px;padding:6px 10px;font-size:26px;min-width:92px;box-shadow:none;margin:4px}
+.bx.on{background:#d9f5e4;border-color:var(--leaf)}.bx.on::after{content:'✔';display:block;color:var(--leaf);font-size:22px}.bx.bad{background:#ffd0ca}
+.mrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0;font-size:20px}.mrow b{min-width:250px}
+.chip.ok{background:var(--leaf);color:#fff;border-color:var(--leaf)}.chip.no{background:#ffd0ca}
+.fin{width:74px;font:inherit;font-size:22px;text-align:center;border:3px solid var(--ink);border-radius:10px;padding:4px}.fin.ok{background:#d9f5e4}.fin.bad{background:#ffd0ca}
+.fseq{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:22px;font-weight:700;margin:10px 0}
+.col{border-collapse:collapse;font-size:30px;margin:8px 0}.col td{border:2px solid var(--ink);width:70px;height:48px;text-align:center;padding:0}.col .h td{background:var(--ink);color:#fff;font-size:20px}.col .cy td{height:30px;font-size:20px;color:var(--coral);border-color:transparent}
+.rules{background:#fff6d8;border-left:8px solid var(--coral);border-radius:10px;padding:10px 14px;cursor:pointer;margin-top:10px}
+.sg{display:flex;justify-content:space-around;gap:20px;margin-top:28px}.sg div{min-width:150px;font-weight:700}.sg span{display:block;border-top:2px solid #8a5a00;margin-bottom:4px}
+#rep td,#rep th{border:1px solid var(--line);padding:4px 8px;font-size:16px}#rep table{max-width:none}.cr{font-size:20px}
+@media print{#rep button{display:none}}
+</style>
+</head>
+<body>
+<div class="bar" role="toolbar" aria-label="Voice controls">
+  <span>🔊 Voice:</span>
+  <button id="autoBtn" class="off" aria-pressed="false">Auto voice-over: OFF</button>
+  <label>Speed <select id="rate"><option value=".7">Slow</option><option value=".9" selected>Normal</option><option value="1.1">Fast</option></select></label>
+  <label>Voice <select id="voiceSel" style="max-width:190px"><option>Loading…</option></select></label>
+  <button class="stop" id="stopBtn">⏹ Stop</button>
+</div>
+
+<header class="hero">
+  <h1>How Many Times <span class="x">✖</span></h1>
+  <p>Unit 5 · Class 2 Maths Magic. Count in equal groups and learn the tables of 1, 2, 3, 4, 5 and 10!</p>
+  <button class="big" id="startBtn">▶ Start with voice</button>
+</header>
+
+<main>
+<section id="goals" data-read="Welcome! In this unit, How Many Times, you will count in equal groups, build multiplication tables, and use multiplication in daily life. Below are five developmental goals. Tap any card to hear it. Then tick each I can statement when you have learned it.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Developmental goals</span>
+  <h2>What we grow in this unit</h2>
+  <div class="how">👆 Tap a card to hear it.</div>
+  <div class="grid">
+    <div class="dom d1" tabindex="0" data-say="Physical development. We take part in repeated addition and math lab activities, using our hands to make groups. Try the Hands-on corner.">
+      <span class="ic">🖐️</span><b>Physical development</b>Repeated addition and Math Lab activities.<small>Try: Hands-on corner</small></div>
+    <div class="dom d2" tabindex="0" data-say="Cognitive development. We solve multiplications quickly and correctly, and recite the tables. Try the Tables and Quiz sections.">
+      <span class="ic">🧠</span><b>Cognitive development</b>Quick, correct multiplication and reciting tables.<small>Try: Tables, Quiz</small></div>
+    <div class="dom d3" tabindex="0" data-say="Socio-emotional and ethical development. We use multiplication in daily life, like shopping and sharing, with care and accuracy. Try the Daily life section.">
+      <span class="ic">🤝</span><b>Socio-emotional and ethical development</b>Using multiplication in daily life with accuracy.<small>Try: Daily life</small></div>
+    <div class="dom d4" tabindex="0" data-say="Language and literacy development. We understand what multiplication means, say it in words like 4 groups of 2, and use the times symbol. Try the Group builder.">
+      <span class="ic">🗣️</span><b>Language and literacy development</b>Meaning of multiplication and its symbol ×.<small>Try: Group builder</small></div>
+    <div class="dom d5" tabindex="0" data-say="Aesthetic and cultural development. We see multiplication in the things around us, like flowers, fruits, bicycles and vehicles, and use it with accuracy.">
+      <span class="ic">🎨</span><b>Aesthetic and cultural development</b>Multiplication in the world around us.<small>Try: Coconuts, Daily life</small></div>
+  </div>
+  <h3 style="margin-top:18px">I can…</h3>
+  <div id="goalList"></div>
+  <div class="stars" id="goalStars" aria-live="polite">☆☆☆☆</div>
+</section>
+
+<section id="story" data-read="Function at Suraiah's house. Suraiah wants 8 coconuts. The vendor gives 2 coconuts at a time. Press the button to add 2 coconuts each time. Watch how many times you add 2.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Cognitive · Aesthetic</span>
+  <h2>🥥 Function at Suraiah's house</h2>
+  <div class="how">Press <b>Add 2 coconuts</b>. Count how many times you add 2.</div>
+  <div class="ctl"><button id="addCoco">➕ Add 2 coconuts</button><button id="resetCoco" class="chip">↺ Start again</button></div>
+  <div class="coco" id="coco"></div>
+  <div class="sum" id="cocoSum"></div>
+</section>
+
+<section id="build" data-read="Group builder. Choose how many groups, and how many are in each group. Then look at the picture and the sentences. Press Hear it to listen. Multiplication is repeated addition.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Language and literacy · Physical</span>
+  <h2>🧺 Group builder</h2>
+  <div class="how">Choose groups and items. Say it aloud: “3 groups of 4”.</div>
+  <div class="ctl"><label>Groups: <b id="gv">3</b> <input type="range" id="gr" min="1" max="10" value="3" aria-label="Number of groups"></label></div>
+  <div class="ctl" id="nChips">In each group:</div>
+  <div class="ctl" id="thChips">Picture:</div>
+  <div class="arr" id="arr"></div>
+  <div class="eq" id="eqAdd"></div>
+  <div class="eq" id="eqMul" style="color:var(--coral)"></div>
+  <div class="ctl"><button id="hearBuild">🔊 Hear it</button></div>
+</section>
+
+<section id="tables" data-read="Multiplication tables. Choose a table: 1, 2, 3, 4, 5 or 10. Tap any line to hear it, or press Read the whole table. Notice the pattern when we add the same number each time.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Cognitive</span>
+  <h2>📊 Tables</h2>
+  <div class="ctl" id="tabChips">Table of:</div>
+  <div class="skip" id="skip"></div>
+  <div class="ctl"><button id="readTable">🔊 Read the whole table</button></div>
+  <table id="tbl" aria-label="Multiplication table"></table>
+</section>
+
+<section id="special" data-read="Two special facts. Any number multiplied by zero gives zero, like Dheeraj who caught no fish in five tries. Any number multiplied by one gives the same number. Tap a card to hear it.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Cognitive</span>
+  <h2>⭐ Two special facts</h2>
+  <div class="grid">
+    <div class="fact" tabindex="0" data-say="Multiplication by zero. Dheeraj tried 5 times to catch a fish and caught none. 0 plus 0 plus 0 plus 0 plus 0 is 0. So 5 times 0 is 0. Any number times 0 is 0.">🎣 <b>Zero:</b> 0+0+0+0+0 = 0<br>5 × 0 = 0<br>Any number × 0 = 0</div>
+    <div class="fact" tabindex="0" data-say="Multiplication by one. 4 teddy bears, 1 in each group. 1 plus 1 plus 1 plus 1 is 4. So 4 times 1 is 4. Any number times 1 is the same number.">🧸 <b>One:</b> 1+1+1+1 = 4<br>4 × 1 = 4<br>Any number × 1 = same number</div>
+  </div>
+</section>
+
+<section id="life" data-read="Multiplication in daily life. Rahim went to a shop with his father. Notebooks cost 10 rupees each, pencils 4, erasers 3 and pens 5. Choose how many he buys, then see how much money is spent. Share carefully and count honestly.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Socio-emotional and ethical · Aesthetic</span>
+  <h2>🛒 In the shop with Rahim</h2>
+  <div class="how">Change how many he buys. Check the money spent.</div>
+  <div id="shop"></div>
+  <div class="eq" id="shopTot" style="margin-top:8px"></div>
+</section>
+
+<section id="hands" data-read="Hands-on corner. Collect 12 small objects like buttons, bottle caps or pebbles. Arrange them in different arrays, and write the multiplication facts. Work with a friend and take turns. Tap a fact to hear it.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">Physical · Socio-emotional</span>
+  <h2>🔘 Hands-on corner: 12 buttons</h2>
+  <div class="how">Collect 12 buttons, caps or pebbles. Make rows with a friend. How many facts can you find?</div>
+  <div class="ctl" id="facts12"></div>
+</section>
+
+
+<section id="equal" data-read="Identify the equal groups. Look at each row of boxes. Tap the boxes that have the same number of things to put a tick. Then press Check.">
+  <button class="rd" data-rd>🔊 Read instructions</button><span class="tag">Cognitive · Physical</span><h2>✅ Identify the equal groups</h2>
+  <div class="how">Tap the boxes with equal groups to tick ✔ them.</div><div id="eqBox"></div>
+  <div class="ctl"><button id="eqChk">Check</button></div><div class="msg" id="eqMsg"></div>
+</section>
+<section id="match" data-read="Match the following. Read the repeated addition. Tap the correct answer for each one. Then see the multiplication form.">
+  <button class="rd" data-rd>🔊 Read instructions</button><span class="tag">Cognitive · Language</span><h2>🔗 Match the following</h2>
+  <div class="how">Tap the right answer for each addition.</div><div id="mBox"></div><div class="msg" id="mMsg"></div>
+</section>
+<section id="fill" data-read="Fill in the blanks. Choose a table. Type the missing numbers by adding the same number each time. Then press Check.">
+  <button class="rd" data-rd>🔊 Read instructions</button><span class="tag">Cognitive</span><h2>✏️ Fill in the blanks</h2>
+  <div class="how">Add the same number each time to build the table.</div><div class="ctl" id="fillChips">Table of:</div><div id="fillBox"></div>
+  <div class="ctl"><button id="fChk">Check</button><button id="fNew" class="chip">🔀 New blanks</button></div><div class="msg" id="fMsg"></div>
+</section>
+<section id="digit" data-read="Multiply a two-digit number by a one-digit number. Choose a sum. Press Next step to see each step: ones first, then tens. If the ones make 10 or more, carry the tens.">
+  <button class="rd" data-rd>🔊 Read instructions</button><span class="tag">Cognitive</span><h2>🔢 2-digit × 1-digit</h2>
+  <div class="how">Press Next step to see how to multiply.</div><div class="ctl" id="dChips"></div><div id="dBox"></div>
+  <div class="ctl"><button id="dNext">Next step ➜</button><button id="dReset" class="chip">↺ Start again</button></div>
+</section>
+<section id="vehicle" data-read="Vehicles traffic. Bicycles have 2 wheels, autorickshaws 3 wheels and cars 4 wheels. Choose a vehicle and how many. See the wheels add up. Then read the traffic rules and discuss them.">
+  <button class="rd" data-rd>🔊 Read instructions</button><span class="tag">Socio-emotional and ethical · Cognitive</span><h2>🚦 Vehicles traffic</h2>
+  <div class="how">Count the wheels by adding.</div><div class="ctl" id="vChips"></div>
+  <div class="ctl"><label>How many: <b id="vv">3</b> <input type="range" id="vr" min="1" max="10" value="3"></label></div>
+  <div class="arr" id="vArr"></div><div class="eq" id="vEq"></div><div class="ctl"><button id="vHear">🔊 Hear it</button></div>
+  <div class="rules" tabindex="0" data-say="Traffic rules. Stop at the red light. Cross the road at the zebra crossing. Wear a helmet on a bike. Never run on the road. Discuss with your friends: why are traffic rules important?">🚦 <b>Traffic rules – tap to hear and discuss</b><br>🔴 Stop at red · 🦓 Cross at the zebra crossing · ⛑️ Wear a helmet · 🚶 Never run on the road</div>
+</section>
+<section id="quiz" data-read="Quiz time! There are ten questions, two for each of the five developmental goals. Read each question, or press Read question to hear it. Tap the answer you think is right. If you are right, you get applause. If not, try again. At the end you will get your score and a certificate with your name.">
+  <button class="rd" data-rd>🔊 Read instructions</button>
+  <span class="tag">All five goals</span>
+  <h2>🏆 Quiz: 2 questions for every goal</h2>
+  <div id="qbox"></div>
+</section>
+
+<section id="rep" data-read="Progress report. This shows saved quiz results on this device. Press Show results. You can print the report.">
+  <button class="rd" data-rd>🔊 Read instructions</button><h2>📋 Progress report (for teacher)</h2><div class="how">Results are saved only on this device.</div>
+  <div class="ctl"><button id="rShow">Show results</button><button id="rPrint" class="chip">🖨 Print report</button><button id="rClear" class="chip">🗑 Clear all</button></div>
+  <div id="repBox"></div>
+</section>
+</main>
+<footer><b class="cr">Created by T N Sivaji, SGT, Manyam</b><br>Based on Class 2 Maths Magic, Unit 5 “How Many Times?” (AP SCERT). Voice uses your device’s built-in speech. For the most human sound, pick a ★ voice marked “Natural” or “Online” (Edge or Chrome) or a Siri/Enhanced voice (iPhone, iPad, Mac).</footer>
+<div id="fb" aria-live="assertive"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let auto=false,rate=.9,voice=null,last=null;
+const toast=m=>{const t=$('#toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2500)};
+const sc=v=>{let s=0;const n=v.name;
+ if(/natural|neural|online/i.test(n))s+=50;
+ if(/Microsoft.*(Neerja|Aria|Jenny|Ana|Sonia|Libby|Prabhat|Michelle)/i.test(n))s+=30;
+ if(/google/i.test(n))s+=20;
+ if(/Samantha|Karen|Serena|Moira|Tessa|Daniel|Rishi|Veena|Siri/i.test(n))s+=15;
+ if(/en-IN/i.test(v.lang))s+=8;else if(/en-GB|en-AU/i.test(v.lang))s+=4;else if(/en-US/i.test(v.lang))s+=3;
+ if(/espeak|compact|novelty/i.test(n))s-=40;return s};
+let vs=[],tok=0;
+function pick(){
+  vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>sc(b)-sc(a));
+  const sel=$('#voiceSel');if(!sel||!vs.length)return;
+  let saved='';try{saved=localStorage.getItem('hmt-voice')||''}catch(e){}
+  voice=vs.find(v=>v.name===saved)||vs[0];
+  sel.innerHTML=vs.map((v,i)=>`<option value="${v.name}"${v===voice?' selected':''}>${i<3&&sc(v)>=20?'★ ':''}${v.name} (${v.lang})</option>`).join('');
+}
+if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=pick;pick()}
+function clr(){$$('.speaking').forEach(e=>e.classList.remove('speaking'))}
+function stopAll(){tok++;if('speechSynthesis' in window)speechSynthesis.cancel();clr()}
+function say(t,el,cb){
+  if(!('speechSynthesis' in window)){toast('Voice is not supported on this browser');return}
+  const my=++tok;speechSynthesis.cancel();clr();
+  if(el)el.classList.add('speaking');
+  const txt=t.replace(/×/g,' times ').replace(/\+/g,' plus ').replace(/=/g,' is ').replace(/₹\s?(\d+)/g,'$1 rupees ').replace(/_+/g,' blank ').replace(/\s+/g,' ');
+  const parts=(txt.match(/[^.!?:]+[.!?:]*/g)||[txt]).map(x=>x.trim()).filter(Boolean);
+  let k=0;
+  (function nx(){
+    if(my!==tok)return;
+    if(k>=parts.length){el&&el.classList.remove('speaking');cb&&cb();return}
+    const part=parts[k++],u=new SpeechSynthesisUtterance(part);
+    u.rate=rate;u.pitch=1.08;u.volume=1;u.lang=voice?voice.lang:'en-IN';if(voice)u.voice=voice;
+    const gap=/[?!]$/.test(part)?320:/[.:]$/.test(part)?240:120;
+    u.onend=()=>setTimeout(nx,gap);
+    u.onerror=()=>setTimeout(nx,0);
+    speechSynthesis.speak(u);
+  })();
+}
+function setAuto(v){auto=v;const b=$('#autoBtn');b.textContent='Auto voice-over: '+(v?'ON':'OFF');b.className=v?'on':'off';b.setAttribute('aria-pressed',v)}
+$('#autoBtn').onclick=()=>{setAuto(!auto);if(auto){last=null;check()}else stopAll()};
+$('#stopBtn').onclick=stopAll;
+$('#voiceSel').onchange=e=>{voice=vs.find(v=>v.name===e.target.value)||voice;try{localStorage.setItem('hmt-voice',e.target.value)}catch(x){}say('Hello friends! Let us learn how many times together.')};
+$('#rate').onchange=e=>rate=+e.target.value;
+$('#startBtn').onclick=()=>{setAuto(true);last=null;$('#goals').scrollIntoView({behavior:'smooth'});setTimeout(check,700)};
+$$('[data-rd]').forEach(b=>b.onclick=()=>{const s=b.closest('section');say(s.dataset.read,s)});
+document.addEventListener('click',e=>{const d=e.target.closest('[data-say]');if(d)say(d.dataset.say,d)});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){const d=e.target.closest('[data-say]');if(d)say(d.dataset.say,d)}});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&auto&&last!==e.target){last=e.target;say(e.target.dataset.read,e.target)}})},{threshold:.55});
+$$('section[data-read]').forEach(s=>io.observe(s));
+function check(){const m=innerHeight/2;const s=$$('section[data-read]').find(x=>{const r=x.getBoundingClientRect();return r.top<m&&r.bottom>m});if(s&&auto){last=s;say(s.dataset.read,s)}}
+
+/* goals */
+const goals=['count in equal groups','build the tables of 1 to 5 and 10','make patterns with the tables','change repeated addition into multiplication and back'];
+$('#goalList').innerHTML=goals.map((g,i)=>`<label class="goal"><input type="checkbox" data-g="${i}"> I can ${g}.</label>`).join('');
+$('#goalList').onchange=()=>{const n=$$('[data-g]:checked').length;$('#goalStars').textContent='⭐'.repeat(n)+'☆'.repeat(4-n);if(n==4)say('Wonderful! You reached all four goals. You are a maths star!')};
+
+/* coconuts */
+let cc=0;
+function drawCoco(){
+  $('#coco').innerHTML='🥥🥥'.repeat(0)+Array.from({length:cc},()=>'<div class="bowl">🥥🥥</div>').join('');
+  $('#cocoSum').textContent=cc?Array(cc).fill(2).join(' + ')+' = '+cc*2+'   ('+cc+' × 2 = '+cc*2+')':'No coconuts yet';
+}
+$('#addCoco').onclick=()=>{if(cc<4)cc++;drawCoco();const t=cc*2;say(cc+(cc==1?' group':' groups')+' of 2. '+Array(cc).fill(2).join(' plus ')+' is '+t+'.'+(cc==4?' Four twos are eight. Suraiah has 8 coconuts!':''),$('#cocoSum'))};
+$('#resetCoco').onclick=()=>{cc=0;drawCoco()};drawCoco();
+
+/* builder */
+let G=3,N=4,E='🥥';
+const words=['','ones','twos','threes','fours','fives','sixes','sevens','eights','nines','tens'];
+[1,2,3,4,5,10].forEach(n=>{const b=document.createElement('button');b.className='chip'+(n==4?' sel':'');b.textContent=n;b.onclick=()=>{N=n;$$('#nChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawB()};$('#nChips').append(b)});
+[['🥥','coconuts'],['🚲','bicycles'],['⭐','stars'],['🥭','mangoes'],['🧸','teddies']].forEach(([e,n])=>{const b=document.createElement('button');b.className='chip'+(e==E?' sel':'');b.textContent=e;b.title=n;b.setAttribute('aria-label',n);b.onclick=()=>{E=e;$$('#thChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawB()};$('#thChips').append(b)});
+$('#gr').oninput=e=>{G=+e.target.value;drawB()};
+function bt(){return `${G} ${G==1?'group':'groups'} of ${N}. ${Array(G).fill(N).join(' plus ')} is ${G*N}. ${G} times ${N} is ${G*N}.`}
+function drawB(){
+  $('#gv').textContent=G;
+  $('#arr').innerHTML=Array.from({length:G},()=>`<div class="grp">${E.repeat(N)}</div>`).join('');
+  $('#eqAdd').textContent=Array(G).fill(N).join(' + ')+' = '+G*N;
+  $('#eqMul').textContent=G+' × '+N+' = '+G*N+'   ('+G+' groups of '+N+')';
+}
+$('#hearBuild').onclick=()=>say(bt(),$('#arr'));drawB();
+
+/* tables */
+let T=2;
+[1,2,3,4,5,10].forEach(t=>{const b=document.createElement('button');b.className='chip'+(t==2?' sel':'');b.textContent=t;b.onclick=()=>{T=t;$$('#tabChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawT()};$('#tabChips').append(b)});
+const line=i=>`${T} ${words[i]} are ${T*i}`;
+function drawT(){
+  $('#skip').textContent='Skip count: '+Array.from({length:10},(_,i)=>T*(i+1)).join(', ');
+  $('#tbl').innerHTML=Array.from({length:10},(_,k)=>{const i=k+1;return `<tr data-i="${i}"><td>${T} × ${i} = <b>${T*i}</b></td><td>${T} ${words[i]} are ${T*i}</td></tr>`}).join('');
+  $$('#tbl tr').forEach(r=>r.onclick=()=>say(line(+r.dataset.i),r));
+}
+$('#readTable').onclick=()=>{const rows=$$('#tbl tr');let k=0;(function nx(){if(k<10){const r=rows[k];say(line(++k),r,nx)}})()};
+$('#skip').onclick=()=>say('Skip count by '+T+'. '+Array.from({length:10},(_,i)=>T*(i+1)).join(', '),$('#skip'));drawT();
+
+/* shop */
+const items=[['📒','notebooks',10,3],['✏️','pencils',4,4],['🧽','erasers',3,5],['🖊️','pens',5,2]];
+const q=items.map(i=>i[3]);
+function drawShop(){
+  $('#shop').innerHTML=items.map((it,k)=>`<div class="ctl"><span style="font-size:28px">${it[0]}</span> ₹${it[2]} each ·
+  <button class="chip" data-k="${k}" data-d="-1" aria-label="fewer ${it[1]}">−</button><b>${q[k]}</b> ${it[1]}<button class="chip" data-k="${k}" data-d="1" aria-label="more ${it[1]}">+</button>
+  <span class="eq">${q[k]} × ${it[2]} = ₹${q[k]*it[2]}</span><button class="chip" data-s="${k}" aria-label="hear">🔊</button></div>`).join('');
+  $('#shopTot').textContent='Total: ₹'+items.reduce((s,it,k)=>s+q[k]*it[2],0);
+}
+$('#shop').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.d){const k=+b.dataset.k;q[k]=Math.max(0,Math.min(10,q[k]+ +b.dataset.d));drawShop()}
+  else if(b.dataset.s){const k=+b.dataset.s,it=items[k];say(`${q[k]} ${it[1]}, ${it[2]} rupees each. ${q[k]} times ${it[2]} is ${q[k]*it[2]} rupees.`,b.parentElement)}};
+drawShop();
+
+/* 12 objects */
+[[1,12],[2,6],[3,4],[4,3],[6,2],[12,1]].forEach(([a,b])=>{const d=document.createElement('button');d.className='chip';d.textContent=`${a} group${a>1?'s':''} of ${b}: ${a} × ${b} = 12`;d.onclick=()=>say(`${a} ${a>1?'groups':'group'} of ${b}. ${a} times ${b} is 12.`,d);$('#facts12').append(d)});
+
+/* equal groups */
+const EQ=[{e:'🧒',n:[3,3,3,2]},{e:'✏️',n:[2,2,2,3]},{e:'🔺',n:[4,4,3,4]}];
+$('#eqBox').innerHTML=EQ.map((r,i)=>`<div class="ctl" data-r="${i}">${r.n.map((n,j)=>`<button class="bx" aria-label="${n}">${r.e.repeat(n)}</button>`).join('')}</div>`).join('');
+$('#eqBox').onclick=e=>{const b=e.target.closest('.bx');if(b){b.classList.toggle('on');b.classList.remove('bad')}};
+$('#eqChk').onclick=()=>{let ok=true;
+  EQ.forEach((r,i)=>{const cnt={};r.n.forEach(n=>cnt[n]=(cnt[n]||0)+1);const mode=+Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0];
+    $$(`#eqBox [data-r="${i}"] .bx`).forEach((b,j)=>{const want=r.n[j]===mode;if(want!==b.classList.contains('on')){ok=false;b.classList.add('bad')}})});
+  $('#eqMsg').textContent=(ok?'✅ ':'🔄 ')+(ok?"All correct! These are equal groups.":"Look again. Count the things in each box.");fb(ok)};
+/* match */
+const MT=[['9 + 9 + 9','3 × 9',27,[27,24,35]],['5 + 5 + 5 + 5 + 5 + 5 + 5','7 × 5',35,[35,40,14]],['3 + 3 + 3 + 3 + 3','5 × 3',15,[15,27,24]],['10 + 10 + 10 + 10','4 × 10',40,[40,35,14]],['8 + 8 + 8','3 × 8',24,[24,27,15]],['7 + 7','2 × 7',14,[14,15,24]]];
+let mDone=0;
+function drawM(){mDone=0;$('#mBox').innerHTML=MT.map((m,i)=>`<div class="mrow" data-m="${i}"><b>${m[0]} =</b>${shuf(m[3]).map(v=>`<button class="chip" data-v="${v}">${v}</button>`).join('')}<span class="ex"></span></div>`).join('');$('#mMsg').textContent=''}
+$('#mBox').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const r=b.closest('.mrow'),m=MT[+r.dataset.m];
+  if(+b.dataset.v===m[2]){b.classList.add('ok');r.querySelectorAll('button').forEach(x=>x.disabled=true);r.querySelector('.ex').textContent='✔ '+m[1]+' = '+m[2];chime(true);say(m[0]+' = '+m[2]+'. '+m[1]+' = '+m[2]+'.');
+    if(++mDone===MT.length){$('#mMsg').textContent='✅ '+"You matched them all!";setTimeout(()=>fb(true),2500)}}
+  else{b.classList.add('no');fb(false)}};
+drawM();
+/* fill table */
+let FT=2;
+[2,3,4,5,10].forEach(t=>{const b=document.createElement('button');b.className='chip'+(t==2?' sel':'');b.textContent=t;b.onclick=()=>{FT=t;$$('#fillChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawF()};$('#fillChips').append(b)});
+function drawF(){const keep=new Set(shuf([0,1,2,3,4,5,6,7,8,9]).slice(0,4));
+  $('#fillBox').innerHTML='<div class="fseq">'+Array.from({length:10},(_,i)=>keep.has(i)?`<span>${FT*(i+1)}</span>`:`<input class="fin" type="number" inputmode="numeric" data-a="${FT*(i+1)}" aria-label="?">`).join(' → ')+'</div>';$('#fMsg').textContent=''}
+$('#fChk').onclick=()=>{let ok=true;$$('#fillBox .fin').forEach(i=>{const g=i.value.trim()===i.dataset.a;i.classList.toggle('ok',g);i.classList.toggle('bad',!g);if(!g)ok=false});
+  $('#fMsg').textContent=(ok?'✅ ':'🔄 ')+(ok?"Perfect! Every number is right.":"Some numbers are not right. Try again.");fb(ok)};
+$('#fNew').onclick=drawF;drawF();
+/* 2-digit x 1-digit */
+const DP=[[12,2],[13,3],[15,3],[16,2],[18,3],[14,3]];let dp=DP[2],ds=0;
+DP.forEach(p=>{const b=document.createElement('button');b.className='chip'+(p===dp?' sel':'');b.textContent=p[0]+' × '+p[1];b.onclick=()=>{dp=p;ds=0;$$('#dChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawD(true)};$('#dChips').append(b)});
+function drawD(sp){const n=dp[0],m=dp[1],t=Math.floor(n/10),o=n%10,on=o*m,c=Math.floor(on/10),od=on%10,tn=t*m+c;
+  const st=[`Arrange ${n} and ${m} in columns: tens and ones.`,`Multiply the ones. ${o} ones × ${m} = ${on} ones. `+(c?`That is ${c} ten and ${od} ones. Write ${od}, carry ${c} to the tens.`:`Write ${od} in the ones column.`),`Multiply the tens. ${t} ten × ${m} = ${t*m} tens`+(c?` plus ${c} carried = ${tn} tens.`:'.')+` Write ${tn} in the tens column.`,`The answer is ${n*m}.`];
+  $('#dBox').innerHTML=`<table class="col"><tr class="cy"><td>${ds>=1&&c?c:''}</td><td></td></tr><tr class="h"><td>T</td><td>O</td></tr><tr><td>${t}</td><td>${o}</td></tr><tr><td>×</td><td>${m}</td></tr><tr><td>${ds>=2?tn:''}</td><td>${ds>=1?od:''}</td></tr></table><div class="how">${st[ds]}</div>`;
+  if(sp)say(st[ds],$('#dBox'))}
+$('#dNext').onclick=()=>{ds=Math.min(3,ds+1);drawD(true)};$('#dReset').onclick=()=>{ds=0;drawD(true)};drawD(false);
+/* vehicles */
+const VH=[["🚲", "bicycle", 2], ["🛺", "autorickshaw", 3], ["🚗", "car", 4]];let vi=1,vk=3;
+VH.forEach((v,i)=>{const b=document.createElement('button');b.className='chip'+(i==vi?' sel':'');b.textContent=v[0]+' '+v[2];b.setAttribute('aria-label',v[1]);b.onclick=()=>{vi=i;$$('#vChips .chip').forEach(c=>c.classList.toggle('sel',c==b));drawV()};$('#vChips').append(b)});
+function drawV(){const v=VH[vi];$('#vArr').innerHTML=Array.from({length:vk},()=>`<div class="grp">${v[0]}<br><small>${'⚫'.repeat(v[2])}</small></div>`).join('');
+  $('#vEq').textContent=Array(vk).fill(v[2]).join(' + ')+' = '+vk*v[2]+'   ('+vk+' × '+v[2]+' = '+vk*v[2]+')'}
+$('#vr').oninput=e=>{vk=+e.target.value;$('#vv').textContent=vk;drawV()};
+$('#vHear').onclick=()=>{const v=VH[vi];say(`${vk} ${v[1]}s, each has ${v[2]} wheels. ${Array(vk).fill(v[2]).join(' + ')} = ${vk*v[2]}. ${vk} × ${v[2]} = ${vk*v[2]}. Total wheels ${vk*v[2]}.`,$('#vArr'))};drawV();
+
+/* quiz */
+const D=[["🖐️", "Physical development"], ["🧠", "Cognitive development"], ["🤝", "Socio-emotional and ethical development"], ["🗣️", "Language and literacy development"], ["🎨", "Aesthetic and cultural development"]];
+const POOL=[{"d": 0, "q": "Math lab: you place 3 groups of 2 marbles on the egg tray. How many marbles are there?", "o": ["5", "6", "8"], "a": 1, "p": "🔴🔴 &nbsp; 🔴🔴 &nbsp; 🔴🔴", "sp": "The picture shows 3 groups with 2 marbles in each group."}, {"d": 0, "q": "Which is the addition form of 4 × 3?", "o": ["7", "12", "3 + 3 + 3 + 3"], "a": 2}, {"d": 0, "q": "Math lab: you place 2 groups of 5 marbles on the egg tray. How many marbles are there?", "o": ["7", "10", "12"], "a": 1, "p": "🔴🔴🔴🔴🔴 &nbsp; 🔴🔴🔴🔴🔴", "sp": "The picture shows 2 groups with 5 marbles in each group."}, {"d": 1, "q": "2 × 0 = 0; 5 × 0 = 0; 3 × ___ = 0. What goes in the blank?", "o": ["0", "1", "3"], "a": 0}, {"d": 1, "q": "What is 7 × 5?", "o": ["30", "35", "40"], "a": 1}, {"d": 1, "q": "What is 6 × 10?", "o": ["16", "60", "600"], "a": 1}, {"d": 2, "q": "Rahim buys 4 pencils. Each pencil costs ₹4. How much money does he spend?", "o": ["₹8", "₹16", "₹20"], "a": 1, "p": "✏️✏️✏️✏️"}, {"d": 2, "q": "3 families visit a park. There are 3 members in each family. How many members are there in all?", "o": ["6", "9", "12"], "a": 1, "p": "👨‍👩‍👧 &nbsp; 👨‍👩‍👧 &nbsp; 👨‍👩‍👧", "sp": "The picture shows 3 families."}, {"d": 2, "q": "A notebook costs ₹10. Rahim buys 3 notebooks. How much money does he spend?", "o": ["₹13", "₹30", "₹33"], "a": 1, "p": "📒📒📒"}, {"d": 3, "q": "Which symbol means multiplication?", "o": ["+", "×", "="], "so": ["plus sign", "the times sign", "equals sign"], "a": 1}, {"d": 3, "q": "Look at the picture. Which multiplication fact is it?", "o": ["1 × 6", "1 × 3", "2 × 3"], "a": 2, "p": "😀😀😀<br>😀😀😀", "sp": "The picture shows 2 rows with 3 smiley faces in each row."}, {"d": 3, "q": "Which is the multiplication form of 5 + 5 + 5?", "o": ["3 × 5", "5 × 5", "3 + 5"], "a": 0}, {"d": 4, "q": "Ram made 4 bouquets with 3 flowers in each bouquet. How many flowers did he use?", "o": ["7", "12", "15"], "a": 1, "p": "🌸🌸🌸 🌼🌼🌼 🌺🌺🌺 🌷🌷🌷", "sp": "The picture shows 4 bouquets."}, {"d": 4, "q": "There are 4 baskets in a fruit shop. Each basket has 5 mangoes. How many mangoes are there in all?", "o": ["9", "20", "45"], "a": 1, "p": "🥭🥭🥭🥭🥭 × 4"}, {"d": 4, "q": "There are 3 hands. Each hand has 5 fingers. How many fingers are there in all?", "o": ["8", "15", "20"], "a": 1, "p": "🖐️🖐️🖐️"}];
+const SEC=['hands','tables','life','build','story'];
+const L="ABC";
+let qs=[],qi=0,tries=0,done=false,res=[],pname='',fbT,AC,saved=false;
+function shuf(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function prep(x){const idx=shuf(x.o.map((_,i)=>i));return Object.assign({},x,{o:idx.map(i=>x.o[i]),so:x.so?idx.map(i=>x.so[i]):undefined,a:idx.indexOf(x.a)})}
+function start(doms){qs=doms.flatMap(k=>shuf(POOL.filter(q=>q.d===k)).slice(0,2).map(prep));qi=0;res=[];saved=false;drawQ()}
+function tone(f,t,d,ty,g){const o=AC.createOscillator(),v=AC.createGain(),n=AC.currentTime+t;o.type=ty||'sine';o.frequency.value=f;v.gain.setValueAtTime(g||.15,n);v.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(v);v.connect(AC.destination);o.start(n);o.stop(n+d)}
+function chime(ok){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+  if(ok){[523,659,784,1047,1319].forEach((f,i)=>tone(f,i*.1,.28))}else{tone(280,0,.22,'triangle',.22);tone(200,.2,.4,'triangle',.22)}}catch(e){}}
+function confetti(){for(let i=0;i<24;i++){const c=document.createElement('span');c.className='conf';c.textContent=['⭐','🎉','✨','🌟','🎊'][i%5];c.style.left=Math.random()*96+'vw';c.style.animationDelay=Math.random()*.5+'s';document.body.append(c);setTimeout(()=>c.remove(),2600)}}
+const praise=[["🌟", "Excellent!"], ["👏", "Well done!"], ["🏆", "Super!"], ["🎉", "Great job!"], ["😀", "Correct!"]];
+function fb(ok){
+  const f=$('#fb'),r=ok?praise[Math.floor(Math.random()*praise.length)]:['🔄',"Try again!"];
+  f.className='show '+(ok?'good':'bad');
+  f.innerHTML=`<div class="sym">${r[0]}</div><div class="txt">${r[1]}</div>`;
+  if(ok)confetti();chime(ok);
+  setTimeout(()=>say(r[1]+(ok?" You are a maths star!":" Think once more.")),ok?600:450);
+  clearTimeout(fbT);fbT=setTimeout(()=>f.className='',ok?2000:1500);
+}
+const qText=x=>x.q+' '+(x.sp||'')+" Options. "+(x.so||x.o).map((o,i)=>L[i]+': '+o).join('. ');
+const LV=[["🥇", "Gold – Maths Champion"], ["🥈", "Silver – Maths Star"], ["🥉", "Bronze – Maths Learner"], ["🌱", "Brave Learner – keep practising"]];
+const level=n=>n>=9?LV[0]:n>=7?LV[1]:n>=5?LV[2]:LV[3];
+function drawQ(){
+  const box=$('#qbox');
+  if(qi>=qs.length)return drawRes();
+  const x=qs[qi],d=D[x.d];tries=0;done=false;
+  box.innerHTML=`<div class="prog"><i style="width:${qi/qs.length*100}%"></i></div><div>${`Question ${qi+1} of ${qs.length}`}</div><span class="tag">${d[0]} ${d[1]}</span>
+  <div class="q" id="qt">${x.q}</div>${x.p?`<div class="pic">${x.p}</div>`:''}
+  <div class="opts">${x.o.map((o,i)=>`<button data-i="${i}">${L[i]}) ${o}</button>`).join('')}</div>
+  <div class="msg" id="msg" aria-live="polite"></div>
+  <div class="ctl"><button id="rq">🔊 Read question</button><button id="nq" class="chip" style="display:none">${qi==qs.length-1?"See my score ➜":"Next ➜"}</button></div>`;
+  $('#rq').onclick=()=>say(qText(x),$('#qt'));
+  $('#nq').onclick=()=>{qi++;drawQ();$('#quiz').scrollIntoView({behavior:'smooth'})};
+  $$('.opts button').forEach(b=>b.onclick=()=>{
+    if(done)return;const i=+b.dataset.i;
+    if(i==x.a){done=true;res[qi]=!tries;b.classList.add('ok');$('#msg').textContent="✅ Correct!";$('#nq').style.display='';fb(true)}
+    else{tries++;b.classList.add('no');$('#msg').textContent="🔄 Try again";fb(false)}});
+  if(auto&&last===$('#quiz'))say(qText(x),$('#qt'));
+}
+const dsc=k=>qs.reduce((t,q,i)=>t+(q.d===k&&res[i]?1:0),0);
+const AK='hmt-en-att';
+function getAtt(){try{return JSON.parse(localStorage.getItem(AK)||'[]')}catch(e){return[]}}
+function saveAtt(name,s){try{const a=getAtt();a.push({n:name,t:Date.now(),s:s,m:qs.length,d:D.map((_,k)=>dsc(k)),dq:D.map((_,k)=>qs.filter(q=>q.d===k).length)});localStorage.setItem(AK,JSON.stringify(a.slice(-100)))}catch(e){}}
+function drawRes(){
+  const sc=res.filter(Boolean).length,lv=level(sc),doms=[...new Set(qs.map(q=>q.d))],weakD=doms.filter(k=>dsc(k)<2);
+  const rows=doms.map(k=>{const d=D[k],n=dsc(k);return `<div class="dr"><span>${d[0]} ${d[1]}</span><span>${'⭐'.repeat(n)+'☆'.repeat(2-n)}</span></div>`}).join('');
+  const wk=weakD.length?`<div class="how">Let us practise these goals again:</div><div class="ctl">${weakD.map(k=>`<button class="chip" data-go="${SEC[k]}">${D[k][0]} Practise</button>`).join('')}<button id="wk">🎯 Quiz on weak goals</button></div>`:`<div class="msg">🌟 Great! You are strong in all goals.</div>`;
+  $('#qbox').innerHTML=`<div class="score">${`🎉 Your score: <b>${sc} / ${qs.length}</b>`}</div><div class="lv">${lv[0]} ${lv[1]}</div>${rows}${wk}
+  <div class="ctl" style="margin-top:14px"><label>✍️ Your name: <input id="nm" maxlength="30" placeholder="Type your name" style="font:inherit;padding:.4em;border-radius:10px;border:3px solid var(--ink)"></label><button id="mk">🎓 Get my certificate</button></div>
+  <div id="certBox"></div><button id="again" class="chip">↺ Play again</button>`;
+  $('#nm').value=pname;
+  $('#again').onclick=()=>start([0,1,2,3,4]);
+  if($('#wk'))$('#wk').onclick=()=>start(weakD);
+  $$('[data-go]').forEach(b=>b.onclick=()=>{const s=$('#'+b.dataset.go);s.scrollIntoView({behavior:'smooth'});say(s.dataset.read,s)});
+  $('#mk').onclick=()=>{
+    const name=$('#nm').value.trim();if(!name){toast("Please type your name");$('#nm').focus();return}
+    pname=name;if(!saved){saveAtt(name,sc);saved=true}
+    $('#certBox').innerHTML=`<div id="cert"><div style="font-size:54px">🏅</div><h2>Certificate of Achievement</h2><div>This is proudly presented to</div><div class="nm" id="cnm"></div>
+    <div>for learning <b>Multiplication – “How Many Times?”</b><br>Class 2 · Maths Magic · Unit 5</div>
+    <div class="cl">${lv[0]} ${lv[1]} · Score ${sc} / ${qs.length}</div>
+    <div class="bd">${doms.map(k=>{const n=dsc(k);return `<div>${n==2?'🏅':'⭐'} ${D[k][1]}: ${n}/2</div>`}).join('')}</div>
+    <div style="font-size:15px">${new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}</div>
+    <div class="cl" style="font-size:20px">Awarded by the Class Teacher / HM</div>
+    <div class="sg"><div><span></span>Class Teacher</div><div><span></span>Headmaster (HM)</div></div></div>
+    <button onclick="print()">🖨 Print / Save as PDF</button>`;
+    $('#cnm').textContent=name;
+    $('#certBox').scrollIntoView({behavior:'smooth'});
+    chime(true);confetti();
+    setTimeout(()=>say(`Congratulations ${name}! You scored ${sc} out of ${qs.length}. ${lv[1]}. You have earned your achievement certificate.`),700);
+  };
+  chime(true);confetti();
+  setTimeout(()=>say(`You scored ${sc} out of ${qs.length}. ${lv[1]}. Please type your name to get your certificate.`),700);
+}
+/* report */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function showRep(){const a=getAtt();$('#repBox').innerHTML=a.length?`<div style="overflow-x:auto"><table><tr><th>Name</th><th>Date</th><th>Score</th>${D.map(d=>`<th>${d[0]}</th>`).join('')}</tr>${a.slice().reverse().map(r=>`<tr><td>${esc(r.n)}</td><td>${new Date(r.t).toLocaleDateString('en-IN')}</td><td>${r.s}/${r.m}</td>${r.d.map((v,k)=>`<td>${r.dq[k]?v+'/'+r.dq[k]:'–'}</td>`).join('')}</tr>`).join('')}</table></div>`:`<div class="msg">No results saved yet.</div>`}
+$('#rShow').onclick=showRep;
+$('#rPrint').onclick=()=>{showRep();document.body.dataset.pr='rep';print();setTimeout(()=>delete document.body.dataset.pr,600)};
+$('#rClear').onclick=()=>{if(confirm("Delete all saved results?")){try{localStorage.removeItem(AK)}catch(e){}showRep()}};
+start([0,1,2,3,4]);
+</script>
+</body>
+</html>
